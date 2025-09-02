@@ -1,0 +1,248 @@
+/* Root container styling - Centers the app and sets max width */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Header Styles - Beautiful gradient header with movie emoji */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Blue to purple gradient */
+  color: white;
+  padding: 3rem 2rem;
+  margin: -2rem -2rem 2rem -2rem; /* Negative margins to extend beyond root padding */
+  border-radius: 0 0 20px 20px; /* Rounded bottom corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle texture overlay for the header */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+/* Header content container with proper z-index */
+.header-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Main header title styling */
+.header-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+  letter-spacing: -0.02em; /* Slightly tighter letter spacing */
+}
+
+/* Header subtitle styling */
+.header-subtitle {
+  font-size: 1.2rem;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 300;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+}
+
+/* Form Section Styles - Search and Add Movie sections */
+.search-section,
+.add-movie-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px; /* Rounded corners for modern look */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Very subtle border */
+  flex: 1; /* Equal width for both sections */
+  margin: 0 1rem; /* Spacing between sections */
+  transition: all 0.3s ease; /* Smooth transitions for all changes */
+}
+
+/* Hover effects for form sections */
+.search-section:hover,
+.add-movie-section:hover {
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+}
+
+/* Section title styling */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #667eea; /* Blue underline matching header */
+}
+
+/* Form group container styling */
+.form-group {
+  margin-bottom: 1.5rem; /* Spacing between form elements */
+}
+
+/* Form label styling */
+.form-label {
+  display: block;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Input and textarea styling */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e1e5e9; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Smooth transitions */
+  background: #fafbfc; /* Very light background */
+  color: #333;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Focus state styling for inputs and textareas */
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #667eea; /* Blue border on focus */
+  background: white; /* White background on focus */
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); /* Blue glow effect */
+  transform: translateY(-1px); /* Slight lift effect */
+}
+
+/* Placeholder text styling */
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Textarea specific styling */
+.form-textarea {
+  min-height: 80px; /* Minimum height for description */
+  resize: vertical; /* Allow vertical resizing only */
+  font-family: inherit; /* Use same font as rest of form */
+}
+
+/* Submit button styling - Blue gradient for Add Movie */
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Blue to purple gradient */
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); /* Blue shadow */
+}
+
+/* Submit button hover effects */
+.submit-btn:hover {
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4); /* Enhanced shadow */
+}
+
+/* Submit button active state */
+.submit-btn:active {
+  transform: translateY(0); /* Return to normal position when clicked */
+}
+
+/* Search button styling - Green gradient to distinguish from submit button */
+.search-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%); /* Green to teal gradient */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem; /* Slightly smaller than submit button */
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3); /* Green shadow */
+}
+
+/* Search button hover effects */
+.search-btn:hover {
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4); /* Enhanced shadow */
+}
+
+/* Search button active state */
+.search-btn:active {
+  transform: translateY(0); /* Return to normal position when clicked */
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 768px) {
+  .search-section,
+  .add-movie-section {
+    margin: 0.5rem; /* Smaller margins on mobile */
+    padding: 1.5rem; /* Smaller padding on mobile */
+  }
+  
+  .section-title {
+    font-size: 1.3rem; /* Smaller title on mobile */
+  }
+}
+
+/* Logo styling for React logo (if used) */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter; /* Optimize for filter animations */
+  transition: filter 300ms; /* Smooth filter transitions */
+}
+
+/* Logo hover effects */
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa); /* Blue glow on hover */
+}
+
+/* React logo specific hover effect */
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa); /* React blue glow */
+}
+
+/* Logo spin animation keyframes */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Logo spin animation (only if user prefers motion) */
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear; /* Continuous rotation */
+  }
+}
+
+/* Card container styling */
+.card {
+  padding: 2em;
+}
+
+/* Documentation link styling */
+.read-the-docs {
+  color: #888;
+}
