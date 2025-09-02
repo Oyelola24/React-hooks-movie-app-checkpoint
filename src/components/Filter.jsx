@@ -31,7 +31,7 @@ const Filter = ({ movies, title, rating }) => {
             // Second filter: Match exact rating
             .filter((movie) => movie.rating == rating)
             // Map filtered movies to MovieCard components
-            .map((movie, index) => <MovieCard {...movie} />)
+            .map((movie, index) => <MovieCard key={index} {...movie} index={index} />)
         ) : (
           // If no rating filter, only filter by title
           movies
@@ -40,7 +40,7 @@ const Filter = ({ movies, title, rating }) => {
               movie.title.toLowerCase().includes(title.toLowerCase())
             )
             // Map filtered movies to MovieCard components
-            .map((movie, index) => <MovieCard {...movie} />)
+            .map((movie, index) => <MovieCard key={index} {...movie} index={index} />)
         )}
       </div>
     </>

@@ -19,7 +19,7 @@ const MovieList = ({ movies }) => {
       <div className="flex gap-3 flex-wrap">
         {/* Map through all movies and render each as a MovieCard */}
         {movies.map((movie, index) => (
-          <MovieCard key={index} {...movie} />
+          <MovieCard key={index} {...movie} index={index} />
         ))}
       </div>
     </>

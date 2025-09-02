@@ -1,15 +1,17 @@
 // Import React hooks and components
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import movies from "./data/movies";
 import MovieList from "./components/MovieList";
 import Filter from "./components/Filter";
+import MovieDetail from "./components/MovieDetail";
 
 /**
- * Main App Component
- * Manages the movie collection application with search, filter, and add functionality
+ * Home Component
+ * Contains the main movie collection application with search, filter, and add functionality
  */
-function App() {
+function Home() {
   // State for managing all movies in the collection
   const [allMovies, setAllMovies] = useState(movies);
   
@@ -23,6 +25,7 @@ function App() {
     description: "",     // Movie description
     posterURL: "",       // URL to movie poster image
     rating: "",          // Movie rating (0-5)
+    trailerURL: "",      // URL to movie trailer
   });
 
   /**
@@ -47,6 +50,7 @@ function App() {
       description: "",
       posterURL: "",
       rating: "",
+      trailerURL: "",
     });
   };
 
@@ -163,6 +167,21 @@ function App() {
                 required
               />
             </div>
+
+            {/* Movie trailer URL input */}
+            <div className="form-group">
+              <label className="form-label">Trailer URL:</label>
+              <input
+                className="form-input"
+                type="text"
+                value={newMovie.trailerURL}
+                onChange={(e) =>
+                  setNewMovie({ ...newMovie, trailerURL: e.target.value })
+                }
+                placeholder="Enter trailer URL..."
+                required
+              />
+            </div>
             
             {/* Submit button to add the movie */}
             <button type="submit" className="submit-btn">🎬 Add Movie</button>
@@ -179,6 +198,21 @@ function App() {
         <MovieList movies={allMovies} />
       )}
     </>
+  );
+}
+
+/**
+ * Main App Component
+ * Sets up React Router and defines the application routes
+ */
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie/:id" element={<MovieDetail />} />
+      </Routes>
+    </Router>
   );
 }
 
